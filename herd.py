@@ -34,7 +34,7 @@ def run(local_file, remote_file, hosts):
     if not os.path.isfile(bittornado_tgz):
         cwd = os.getcwd()
         os.chdir(herd_root)
-        args = ['tar', 'czf', 'bittornado.tar.gz', 'BitTornado']
+        args = ['sudo', 'tar', 'czf', 'bittornado.tar.gz', 'BitTornado']
         print "Executing", " ".join(args)
         subprocess.call(args)
         os.chdir(cwd)
