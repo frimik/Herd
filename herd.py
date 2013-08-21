@@ -33,12 +33,10 @@ def run(local_file, remote_file, hosts):
     eventlet.spawn(seed, torrent_file, local_file)
     print "Transferring"
     if not os.path.isfile(bittornado_tgz):
-        cwd = os.getcwd()
         os.chdir(herd_root)
         args = ['tar', 'czf', bittornado_tgz, 'BitTornado']
         print "Executing", " ".join(args)
         subprocess.call(args)
-        os.chdir(cwd)
     pool = eventlet.GreenPool(100)
     threads = []
     for host in hosts:
